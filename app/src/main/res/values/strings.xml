@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Real or Fake</string>
+    <string name="upper_text">REAL IMAGE OR FAKE?</string>
+</resources>
