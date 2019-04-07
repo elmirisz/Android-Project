@@ -75,7 +75,7 @@
                     android:maxWidth="42dp"
                     android:maxHeight="42dp"
                     android:scaleType="fitCenter"
-                    android:visibility="invisible"/>
+                    android:visibility="visible"/>
 
 
 
@@ -147,7 +147,7 @@
 
                     android:layout_marginLeft="10dp"
                     android:layout_weight="50"
-                    android:checked="true"
+                   
                     android:onClick="checkButton"
                     android:text="FAKE" />
 
