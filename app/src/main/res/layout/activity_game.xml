@@ -14,8 +14,8 @@
         android:orientation="vertical"
         android:weightSum="100"
         tools:context="com.setheightwidthpercentage_android_examples.com.GameActivity"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="517dp">
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -100,66 +100,58 @@
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+
+                android:orientation="horizontal"
                 android:weightSum="100">
 
                 <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
 
-                    <!--android:orientation="horizontal"-->
-                    <!---->
-                    <!--tools:context="com.setheightwidthpercentage_android_examples.com.GameActivity"-->
-                    <!--tools:layout_editor_absoluteX="264dp"-->
-                    <!--tools:layout_editor_absoluteY="16dp">-->
+                <!--android:orientation="horizontal"-->
+                <!---->
+                <!--tools:context="com.setheightwidthpercentage_android_examples.com.GameActivity"-->
+                <!--tools:layout_editor_absoluteX="264dp"-->
+                <!--tools:layout_editor_absoluteY="16dp">-->
 
-                    <RadioButton
+                <RadioButton
 
-                        android:id="@+id/fakeButton"
-                        android:onClick="checkButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="33"
-                        android:text="FAKE" />
+                    android:id="@+id/fakeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:onClick="checkButton"
+                    android:text="FAKE" />
 
-                    <RadioButton
-
-                        android:id="@+id/confidenceButton"
-                        android:checked="true"
-                        android:onClick="checkButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="33"
-                        android:text="Confidence" />
-
-                    <RadioButton
-                        android:id="@+id/realButton"
-                        android:onClick="checkButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="34"
-                        android:text="REAL" />
+                <RadioButton
+                    android:id="@+id/realButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:onClick="checkButton"
+                    android:text="REAL" />
                 <!--</LinearLayout>-->
             </RadioGroup>
 
 
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
 
-        android:orientation="vertical">
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/applyButton"
+            <Button
+                android:id="@+id/applyButton"
 
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="100"
-            android:text="Apply" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="100"
+                android:text="Apply" />
 
-    </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
