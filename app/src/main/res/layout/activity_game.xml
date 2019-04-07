@@ -102,15 +102,15 @@
                 android:layout_height="match_parent"
                 android:weightSum="100">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
 
-                    android:orientation="horizontal"
-                    android:weightSum="100"
-                    tools:context="com.setheightwidthpercentage_android_examples.com.GameActivity"
-                    tools:layout_editor_absoluteX="264dp"
-                    tools:layout_editor_absoluteY="16dp">
+                    <!--android:orientation="horizontal"-->
+                    <!---->
+                    <!--tools:context="com.setheightwidthpercentage_android_examples.com.GameActivity"-->
+                    <!--tools:layout_editor_absoluteX="264dp"-->
+                    <!--tools:layout_editor_absoluteY="16dp">-->
 
                     <RadioButton
 
@@ -138,7 +138,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="34"
                         android:text="REAL" />
-                </LinearLayout>
+                <!--</LinearLayout>-->
             </RadioGroup>
 
 

@@ -29,6 +29,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        radioGroup = findViewById(R.id.radioGroup);
         mSeekBar = (SeekBar) findViewById(R.id.seekbarExample);
         mTxtValue = (TextView) findViewById(R.id.seekBarValueTxt);
 
@@ -62,7 +63,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-
+        //buttons and what they do
         Button buttonApply = findViewById(R.id.applyButton);
         buttonApply.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,12 +83,16 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void checkButton(View v) {
-        int radioId = radioGroup.getCheckedRadioButtonId();
-//
-//        radioButton = findViewById(radioId);
 
-//        Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(),
-//                Toast.LENGTH_SHORT).show();
+
+
+        int radioId = radioGroup.getCheckedRadioButtonId();
+
+
+        radioButton = findViewById(radioId);
+
+        Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(),
+                Toast.LENGTH_SHORT).show();
     }
 }
 
