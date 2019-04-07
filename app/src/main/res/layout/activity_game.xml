@@ -129,7 +129,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="50"
                     android:onClick="checkButton"
-                    android:text="REAL" />
+                    android:text="REAL !" />
                 <!--</LinearLayout>-->
             </RadioGroup>
 
