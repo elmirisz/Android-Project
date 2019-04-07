@@ -67,7 +67,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="15"
             android:gravity="center"
+            android:background="@color/white"
             android:orientation="vertical">
+
 
             <SeekBar
                 android:id="@+id/seekbarExample"
