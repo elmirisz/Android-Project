@@ -2,11 +2,13 @@ package com.homework.realorfake;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Button;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -14,6 +16,8 @@ public class GameActivity extends AppCompatActivity {
     SeekBar mSeekBar;
     TextView mTxtValue;
     String value;
+
+
 
     //radio buttons
     RadioGroup radioGroup;
@@ -58,11 +62,32 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        // radio buttons
-        radioGroup = findViewById(R.id.radioGroup);
+
+        Button buttonApply = findViewById(R.id.applyButton);
+        buttonApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+
+                radioButton = findViewById(radioId);
+
+
+            }
+        });
+
+    }
 
 
 
+
+
+    public void checkButton(View v) {
+        int radioId = radioGroup.getCheckedRadioButtonId();
+//
+//        radioButton = findViewById(radioId);
+
+//        Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(),
+//                Toast.LENGTH_SHORT).show();
     }
 }
 

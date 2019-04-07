@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InstructionActivity"
+    tools:context=".GameActivity"
     >
 
     <LinearLayout
@@ -113,25 +113,31 @@
                     tools:layout_editor_absoluteY="16dp">
 
                     <RadioButton
-                        android:id="@+id/realButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="33"
-                        android:text="RadioButton" />
 
-                    <RadioButton
                         android:id="@+id/fakeButton"
+                        android:onClick="checkButton"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="33"
-                        android:text="RadioButton" />
+                        android:text="FAKE" />
 
                     <RadioButton
+
                         android:id="@+id/confidenceButton"
+                        android:checked="true"
+                        android:onClick="checkButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="33"
+                        android:text="Confidence" />
+
+                    <RadioButton
+                        android:id="@+id/realButton"
+                        android:onClick="checkButton"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_weight="34"
-                        android:text="RadioButton" />
+                        android:text="REAL" />
                 </LinearLayout>
             </RadioGroup>
 
