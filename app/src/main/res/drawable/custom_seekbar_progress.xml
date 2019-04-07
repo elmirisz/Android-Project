@@ -3,7 +3,7 @@
     <item android:id="@android:id/background"
         android:gravity="center_vertical|fill_horizontal">
         <shape android:shape="rectangle"
-            android:tint="#FF0800">
+            android:tint="#808080">
             <corners android:radius="8dp"/>
             <size android:height="30dp" />
             <solid android:color="#ffd600" />
