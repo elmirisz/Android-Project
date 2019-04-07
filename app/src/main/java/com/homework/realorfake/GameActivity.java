@@ -2,6 +2,8 @@ package com.homework.realorfake;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,6 +14,11 @@ public class GameActivity extends AppCompatActivity {
     SeekBar mSeekBar;
     TextView mTxtValue;
     String value;
+
+    //radio buttons
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +57,11 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
+
+        // radio buttons
+        radioGroup = findViewById(R.id.radioGroup);
+
+
 
     }
 }
