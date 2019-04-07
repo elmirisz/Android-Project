@@ -119,7 +119,10 @@
                     android:id="@+id/fakeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="50"
+                    android:checked="true"
                     android:onClick="checkButton"
                     android:text="FAKE" />
 
