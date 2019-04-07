@@ -10,11 +10,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.setheightwidthpercentage_android_examples.com.MainActivity"
-        android:weightSum="100"
-        android:orientation="vertical"
         android:background="@color/orange"
-        >
+        android:orientation="vertical"
+        android:weightSum="100"
+        tools:context="com.setheightwidthpercentage_android_examples.com.MainActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -26,12 +27,22 @@
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/confidence_text"
                 android:textAppearance="?android:attr/textAppearanceLarge"
 
                 android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/seekBarValueTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/seekbarExample"
+                android:layout_marginTop="32dp"
+                android:text="0"
+                android:textAlignment="center"
+                android:textSize="40sp" />
 
         </LinearLayout>
 
@@ -45,10 +56,8 @@
             <ImageView
                 android:id="@+id/layout_instruction"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/image1" />
-
-
 
 
         </LinearLayout>
@@ -57,19 +66,20 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="15"
-            android:orientation="vertical"
             android:gravity="center"
-            >
+            android:orientation="vertical">
 
-
-            <Button
-                android:id="@+id/startButton"
-                android:layout_width="wrap_content"
+            <SeekBar
+                android:id="@+id/seekbarExample"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="START"
-                android:layout_centerInParent="true"
-                android:onClick="startGame"
-                />
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background=""
+                android:max="100" />
+
+
 
         </LinearLayout>
 

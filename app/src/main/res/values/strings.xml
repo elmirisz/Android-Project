@@ -2,5 +2,5 @@
     <string name="app_name">Real or Fake</string>
     <string name="upper_text">REAL IMAGE OR FAKE?</string>
     <string name="confidence_text">Confidence: </string>
-
+    <string name="init_tv_value">50</string>
 </resources>
