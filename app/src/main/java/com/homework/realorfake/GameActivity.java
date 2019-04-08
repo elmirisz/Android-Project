@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
     TextView mTxtValue;
     String value;
     ImageView imageView;
-    int photoNum = 0;
+    int photoNum = 1;
 
 
     //image resources
