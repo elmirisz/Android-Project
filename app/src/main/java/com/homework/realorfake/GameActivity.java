@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
     TextView mTxtValue;
     String value;
     ImageView imageView;
-    int photoNum = 1;
+    int photoNum = 0;
 
 
     //image resources
@@ -93,13 +93,12 @@ public class GameActivity extends AppCompatActivity {
         buttonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
 
                 Intent i = new Intent(GameActivity.this, PopUp.class);
 
+                startActivity(i);
 
                 photoNum += 1;
                 if (photoNum == 5) {
@@ -108,15 +107,8 @@ public class GameActivity extends AppCompatActivity {
 
                 }
 
-                i.putExtra("variableNum", photoNum);
-
-                startActivity(i);
-
-
                 imageview2.setImageResource(photos[photoNum]);
                 imageView.setVisibility(View.INVISIBLE);
-
-
 
 
 
