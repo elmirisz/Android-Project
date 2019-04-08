@@ -98,7 +98,6 @@ public class GameActivity extends AppCompatActivity {
 
                 Intent i = new Intent(GameActivity.this, PopUp.class);
 
-                startActivity(i);
 
                 photoNum += 1;
                 if (photoNum == 5) {
@@ -106,6 +105,10 @@ public class GameActivity extends AppCompatActivity {
                     photoNum = 0;
 
                 }
+
+
+                i.putExtra("variableNum", photoNum);
+                startActivity(i);
 
                 imageview2.setImageResource(photos[photoNum]);
                 imageView.setVisibility(View.INVISIBLE);
