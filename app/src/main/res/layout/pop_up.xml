@@ -8,12 +8,23 @@
     android:background="@color/blue">
 
 
+    <ImageView
+        android:id="@+id/changePhotoPop"
+        android:layout_width="wrap_content"
+        android:layout_height="293dp"
+        android:layout_marginBottom="314dp"
+        app:layout_constraintBottom_toTopOf="@+id/nextButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image2" />
+
     <Button
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
-        android:background="@color/colorAccent"
+        android:background="@color/orange"
         android:text="Next Picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
