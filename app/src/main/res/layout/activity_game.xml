@@ -147,7 +147,7 @@
 
                     android:layout_marginLeft="10dp"
                     android:layout_weight="50"
-                   
+
                     android:onClick="checkButton"
                     android:text="FAKE" />
 
