@@ -1,10 +1,12 @@
 package com.homework.realorfake;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -22,6 +24,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
     //radio buttons
     RadioGroup radioGroup;
     RadioButton radioButton;
@@ -33,8 +36,8 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         radioGroup = findViewById(R.id.radioGroup);
-        mSeekBar = (SeekBar) findViewById(R.id.seekbarExample);
-        mTxtValue = (TextView) findViewById(R.id.seekBarValueTxt);
+        mSeekBar = findViewById(R.id.seekbarExample);
+        mTxtValue = findViewById(R.id.seekBarValueTxt);
 
         mSeekBar.setProgress(25);
 
@@ -78,6 +81,8 @@ public class GameActivity extends AppCompatActivity {
 
                 radioButton = findViewById(radioId);
 
+
+                startActivity(new Intent(GameActivity.this, PopUp.class));
 
 
 
