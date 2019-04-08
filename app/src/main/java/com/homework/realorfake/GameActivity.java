@@ -96,7 +96,7 @@ public class GameActivity extends AppCompatActivity {
         RadioButton button1 = findViewById(R.id.fakeButton);
         RadioButton button2 = findViewById(R.id.realButton);
 
-        //Checking if FAKE button has been clicked 
+        //Checking if FAKE button has been clicked
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
