@@ -35,6 +35,8 @@ public class PopUp extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pop_up);
 
+        ImageView image1;
+
         //Taking our devices screen size in pixels and creating new values according to them
         //We take phones resolution
         DisplayMetrics dm = new DisplayMetrics();
@@ -50,13 +52,12 @@ public class PopUp extends Activity {
         Intent intent = getIntent();
         int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
 
-
         Log.e("sfas", " " + temp);
 
 
-
-//        imageView.findViewById(R.id.changePhotoPop);
-//        imageView.setImageResource(photos[temp]);
+        //Adding images to PopUp activity
+        image1 = findViewById(R.id.changePhotoPop);
+        image1.setImageResource(photos[temp]);
 
 
 
