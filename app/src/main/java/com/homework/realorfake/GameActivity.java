@@ -21,11 +21,22 @@ public class GameActivity extends AppCompatActivity {
     TextView mTxtValue;
     String value;
     ImageView imageView;
+    int photoNum = 0;
+
+
+    //image resources
+    public static Integer [] photos = {
+
+            R.drawable.image1,
+            R.drawable.image2,
+            R.drawable.image3,
+            R.drawable.image4,
+            R.drawable.image5
+    };
 
 
 
-
-    //radio buttons
+    // buttons
     RadioGroup radioGroup;
     RadioButton radioButton;
 
@@ -38,6 +49,7 @@ public class GameActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         mSeekBar = findViewById(R.id.seekbarExample);
         mTxtValue = findViewById(R.id.seekBarValueTxt);
+
 
         mSeekBar.setProgress(25);
 
@@ -72,17 +84,32 @@ public class GameActivity extends AppCompatActivity {
         });
 
 
+        final ImageView imageview2 = findViewById(R.id.changePhoto);
+
+
+
         //buttons and what they do
-        Button buttonApply = findViewById(R.id.applyButton);
+        final Button buttonApply = findViewById(R.id.applyButton);
         buttonApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
-
                 radioButton = findViewById(radioId);
 
+                Intent i = new Intent(GameActivity.this, PopUp.class);
 
-                startActivity(new Intent(GameActivity.this, PopUp.class));
+                startActivity(i);
+
+                photoNum += 1;
+                if (photoNum == 5) {
+
+                    photoNum = 0;
+
+                }
+
+                imageview2.setImageResource(photos[photoNum]);
+                imageView.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -92,7 +119,21 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+
+
+
     }
+
+
+
+    public void changePhotos() {
+
+
+
+
+    }
+
+
 
     //Method for adding FAKE and REAL stamps
     public void putStamp() {
