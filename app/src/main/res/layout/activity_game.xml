@@ -67,7 +67,7 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/stampPhoto"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     app:srcCompat="@drawable/stamp1"
@@ -75,7 +75,7 @@
                     android:maxWidth="42dp"
                     android:maxHeight="42dp"
                     android:scaleType="fitCenter"
-                    android:visibility="visible"/>
+                    android:visibility="invisible"/>
 
 
 

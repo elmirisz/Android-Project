@@ -2,7 +2,9 @@ package com.homework.realorfake;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -16,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     SeekBar mSeekBar;
     TextView mTxtValue;
     String value;
+    ImageView imageView;
 
 
 
@@ -38,6 +41,8 @@ public class GameActivity extends AppCompatActivity {
         value = String.valueOf(mSeekBar.getProgress());
 
         mTxtValue.setText(value);
+
+        putStamp();
 
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -63,6 +68,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+
         //buttons and what they do
         Button buttonApply = findViewById(R.id.applyButton);
         buttonApply.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +79,53 @@ public class GameActivity extends AppCompatActivity {
                 radioButton = findViewById(radioId);
 
 
+
+
+
+
             }
         });
 
     }
+
+    //Method for adding FAKE and REAL stamps
+    public void putStamp() {
+
+
+        imageView = findViewById(R.id.stampPhoto);
+        RadioButton button1 = findViewById(R.id.fakeButton);
+        RadioButton button2 = findViewById(R.id.realButton);
+
+        //Checking if FAKE button has been clicked 
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                imageView.setImageResource(R.drawable.stamp1);
+                imageView.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+        //Checking if REAL button has been clicked
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                imageView.setImageResource(R.drawable.stamp2);
+                imageView.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+
+
+
+    }
+
+
 
 
 
@@ -94,5 +143,10 @@ public class GameActivity extends AppCompatActivity {
         Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(),
                 Toast.LENGTH_SHORT).show();
     }
+
+
+
+
+
 }
 
