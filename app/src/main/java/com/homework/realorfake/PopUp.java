@@ -47,16 +47,16 @@ public class PopUp extends Activity {
         getWindow().setLayout((int)(width * .98), (int)(height * .75));
 
 
-//        Intent intent = getIntent();
-//        int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
+        Intent intent = getIntent();
+        int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
 
 
         Log.e("sfas", " " + temp);
 
 
 
-        imageView.findViewById(R.id.changePhotoPop);
-        imageView.setImageResource(photos[temp]);
+//        imageView.findViewById(R.id.changePhotoPop);
+//        imageView.setImageResource(photos[temp]);
 
 
 
