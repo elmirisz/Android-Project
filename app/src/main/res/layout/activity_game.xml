@@ -56,28 +56,28 @@
 
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_weight="100">
+
 
                 <ImageView
-                    android:id="@+id/layout_instruction"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/image1"
-                      />
-
+                    android:id="@+id/changePhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="302dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/image2" />
 
                 <ImageView
                     android:id="@+id/stampPhoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:srcCompat="@drawable/stamp1"
+                    android:layout_width="401dp"
+                    android:layout_height="76dp"
+                    android:layout_gravity="center"
                     android:adjustViewBounds="true"
-                    android:maxWidth="42dp"
-                    android:maxHeight="42dp"
+                    android:maxWidth="50dp"
+                    android:maxHeight="50dp"
                     android:scaleType="fitCenter"
-                    android:visibility="invisible"/>
-
-
+                    android:visibility="invisible"
+                    app:srcCompat="@drawable/stamp1" />
 
 
             </FrameLayout>
@@ -180,7 +180,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="10"
 
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
+
 
             <Button
                 android:id="@+id/applyButton"
@@ -189,6 +191,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="100"
                 android:text="Apply" />
+
+
 
         </LinearLayout>
 
