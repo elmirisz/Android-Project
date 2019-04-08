@@ -67,7 +67,7 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/stampPhoto"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     app:srcCompat="@drawable/stamp1"
@@ -75,7 +75,7 @@
                     android:maxWidth="42dp"
                     android:maxHeight="42dp"
                     android:scaleType="fitCenter"
-                    android:visibility="visible"/>
+                    android:visibility="invisible"/>
 
 
 
@@ -113,7 +113,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="30"
@@ -125,7 +125,10 @@
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
+                android:layout_gravity="right"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="2dp"
                 android:orientation="horizontal"
                 android:weightSum="100">
 
@@ -140,9 +143,17 @@
                 <!--tools:layout_editor_absoluteY="16dp">-->
 
                 <RadioButton
+                    android:id="@+id/realButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:onClick="checkButton"
+                    android:text="REAL" />
+
+                <RadioButton
 
                     android:id="@+id/fakeButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="33dp"
                     android:layout_height="match_parent"
 
                     android:layout_marginLeft="10dp"
@@ -151,18 +162,18 @@
                     android:onClick="checkButton"
                     android:text="FAKE" />
 
-                <RadioButton
-                    android:id="@+id/realButton"
+                <ImageView
+                    android:id="@+id/imageButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="50"
-                    android:onClick="checkButton"
-                    android:text="REAL !" />
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/help" />
+
                 <!--</LinearLayout>-->
             </RadioGroup>
 
 
-        </LinearLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
