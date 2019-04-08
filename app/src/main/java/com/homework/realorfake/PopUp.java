@@ -16,6 +16,17 @@ public class PopUp extends Activity {
     GameActivity gm = new GameActivity();
     ImageView imageView;
 
+    //image resources
+    public static Integer [] photos = {
+
+            R.drawable.image1,
+            R.drawable.image2,
+            R.drawable.image3,
+            R.drawable.image4,
+            R.drawable.image5
+    };
+
+
 
 
 
@@ -33,7 +44,19 @@ public class PopUp extends Activity {
         int height = dm.heightPixels;
 
         //here we set the percentage of pop-up window of phones resolution
-        getWindow().setLayout((int)(width * .8), (int)(height * .6));
+        getWindow().setLayout((int)(width * .98), (int)(height * .98));
+
+
+        Intent intent = getIntent();
+        int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
+
+
+        Log.e("sfas", " " + temp);
+//
+//        imageView.findViewById(R.id.changePhotoPop);
+//        imageView.setImageResource(photos[temp]);
+
+
 
 
 
