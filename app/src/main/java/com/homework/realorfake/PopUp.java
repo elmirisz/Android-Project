@@ -55,9 +55,13 @@ public class PopUp extends Activity {
         Log.e("sfas", " " + temp);
 
 
+
+
+
+
         //Adding images to PopUp activity
         image1 = findViewById(R.id.changePhotoPop);
-        image1.setImageResource(photos[temp]);
+        image1.setImageResource(photos[temp - 1]);
 
 
 
