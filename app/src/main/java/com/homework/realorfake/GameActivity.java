@@ -26,6 +26,10 @@ public class GameActivity extends AppCompatActivity {
     int photoNum = 1;
     Intent mIntent;
 
+    String imageName;
+    String radioName ;
+    int confidenceValue ;
+
 
     //image resources
     public static Integer [] photos = {
@@ -53,8 +57,7 @@ public class GameActivity extends AppCompatActivity {
         mSeekBar = findViewById(R.id.seekbarExample);
         mTxtValue = findViewById(R.id.seekBarValueTxt);
 
-
-
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
         mSeekBar.setProgress(25);
 
@@ -100,6 +103,12 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int radioId = radioGroup.getCheckedRadioButtonId();
                 radioButton = findViewById(radioId);
+
+                imageName="image"+ (photoNum+1);
+                radioName= radioButton.getText().toString();
+                confidenceValue=mSeekBar.getProgress();
+
+
 
                 Intent i = new Intent(GameActivity.this, PopUp.class);
 
