@@ -22,6 +22,7 @@ public class GameActivity extends AppCompatActivity {
     String value;
     ImageView imageView;
     int photoNum = 1;
+    Intent mIntent;
 
 
     //image resources
@@ -115,35 +116,42 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-
-
-
             }
         });
 
 
-
-
     }
-
-
-
-    public void changePhotos() {
-
-
-
-
-    }
-
-
 
     //Method for adding FAKE and REAL stamps
     public void putStamp() {
 
 
         imageView = findViewById(R.id.stampPhoto);
+
         RadioButton button1 = findViewById(R.id.fakeButton);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mIntent = new Intent(GameActivity.this, PopUp.class);
+
+                mIntent.putExtra("Fake", "Fake");
+
+            }
+        });
         RadioButton button2 = findViewById(R.id.realButton);
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mIntent = new Intent(GameActivity.this, PopUp.class);
+
+                mIntent.putExtra("Real", "Real");
+
+            }
+        });
 
         //Checking if FAKE button has been clicked
         button1.setOnClickListener(new View.OnClickListener() {
@@ -173,9 +181,6 @@ public class GameActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
 
 

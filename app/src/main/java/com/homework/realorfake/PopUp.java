@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class PopUp extends Activity {
 
@@ -15,6 +16,7 @@ public class PopUp extends Activity {
     int photoNum = 0;
     GameActivity gm = new GameActivity();
     ImageView imageView;
+    TextView text1;
 
     //image resources
     public static Integer [] photos = {
@@ -54,6 +56,32 @@ public class PopUp extends Activity {
 
         Log.e("sfas", " " + temp);
 
+        String fakeString = intent.getStringExtra("Fake");
+        String realString = intent.getStringExtra("Real");
+
+        Log.e("safssaffsa", "" + fakeString);
+
+        if (fakeString != null || realString != null) {
+
+            text1 = findViewById(R.id.RealOrFake);
+
+            if(fakeString != null) {
+
+                text1.setText(fakeString);
+
+
+            } else {
+
+
+                text1.setText(realString);
+
+            }
+
+
+
+        }
+
+
 
 
 
@@ -74,9 +102,7 @@ public class PopUp extends Activity {
             @Override
             public void onClick(View v) {
 
-                changePhotos(buttonNext);
-
-
+                finish();
 
             }
         });
@@ -87,33 +113,10 @@ public class PopUp extends Activity {
 
 
 
-    public void changePhotos(Button button1) {
-
-
-
-        button1 = findViewById(R.id.nextButton);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                photoNum += 1;
-                if (photoNum == 5) {
-
-                    photoNum = 0;
-
-                }
 
 
 
 
-
-
-
-            }
-        });
-
-
-    }
 
 
 }
