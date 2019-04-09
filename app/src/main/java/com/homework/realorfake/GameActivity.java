@@ -1,6 +1,8 @@
 package com.homework.realorfake;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,6 +52,8 @@ public class GameActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         mSeekBar = findViewById(R.id.seekbarExample);
         mTxtValue = findViewById(R.id.seekBarValueTxt);
+
+
 
 
         mSeekBar.setProgress(25);
@@ -129,29 +133,45 @@ public class GameActivity extends AppCompatActivity {
         imageView = findViewById(R.id.stampPhoto);
 
         RadioButton button1 = findViewById(R.id.fakeButton);
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mIntent = new Intent(GameActivity.this, PopUp.class);
-
-                mIntent.putExtra("Fake", "Fake");
-
-            }
-        });
         RadioButton button2 = findViewById(R.id.realButton);
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                mIntent = new Intent(GameActivity.this, PopUp.class);
+                RadioButton btn1 = findViewById(R.id.realButton);
+                RadioButton btn2 = findViewById(R.id.fakeButton);
 
-                mIntent.putExtra("Real", "Real");
+
+
+                if(btn1.isChecked()) {
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameActivity.this);
+                    SharedPreferences.Editor editor = prefs.edit();
+
+                    editor.putString("Real", "Real"); //InputString: from the EditText
+                    editor.commit();
+
+
+                } else if (btn2.isChecked()) {
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameActivity.this);
+                    SharedPreferences.Editor editor = prefs.edit();
+
+                    editor.putString("Fake", "Fake"); //InputString: from the EditText
+                    editor.commit();
+
+
+
+                }
+
+
+
 
             }
         });
+
+
 
         //Checking if FAKE button has been clicked
         button1.setOnClickListener(new View.OnClickListener() {

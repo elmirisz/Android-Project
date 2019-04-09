@@ -2,7 +2,9 @@ package com.homework.realorfake;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -54,26 +56,30 @@ public class PopUp extends Activity {
         Intent intent = getIntent();
         int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
 
-        Log.e("sfas", " " + temp);
+        Log.e("test photo temp num", " " + temp);
 
-        String fakeString = intent.getStringExtra("Fake");
-        String realString = intent.getStringExtra("Real");
 
-        Log.e("safssaffsa", "" + fakeString);
 
-        if (fakeString != null || realString != null) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String fakeStringData = prefs.getString("Fake", null); //no id: default value
+        String realStringData = prefs.getString("Real", null); //no id: default value
+
+        Log.e("test fake", "" + fakeStringData);
+        Log.e("test real", "" + realStringData);
+
+        if (fakeStringData != null || realStringData != null) {
 
             text1 = findViewById(R.id.RealOrFake);
 
-            if(fakeString != null) {
+            if(fakeStringData != null) {
 
-                text1.setText(fakeString);
+                text1.setText(fakeStringData);
 
 
             } else {
 
 
-                text1.setText(realString);
+                text1.setText(realStringData);
 
             }
 
