@@ -24,7 +24,6 @@ public class GameActivity extends AppCompatActivity {
     String value;
     ImageView imageView;
     int photoNum = 1;
-    Intent mIntent;
 
     String imageName;
     String radioName ;
@@ -65,6 +64,7 @@ public class GameActivity extends AppCompatActivity {
 
         mTxtValue.setText(value);
 
+        //Function for putting STAMP on photos
         putStamp();
 
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -144,44 +144,6 @@ public class GameActivity extends AppCompatActivity {
         RadioButton button1 = findViewById(R.id.fakeButton);
         RadioButton button2 = findViewById(R.id.realButton);
 
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                RadioButton btn1 = findViewById(R.id.realButton);
-                RadioButton btn2 = findViewById(R.id.fakeButton);
-
-
-
-                if(btn1.isChecked()) {
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameActivity.this);
-                    SharedPreferences.Editor editor = prefs.edit();
-
-                    editor.putString("Real", "Real"); //InputString: from the EditText
-                    editor.commit();
-
-
-                } else if (btn2.isChecked()) {
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(GameActivity.this);
-                    SharedPreferences.Editor editor = prefs.edit();
-
-                    editor.putString("Fake", "Fake"); //InputString: from the EditText
-                    editor.commit();
-
-
-
-                }
-
-
-
-
-            }
-        });
-
-
-
         //Checking if FAKE button has been clicked
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,18 +175,13 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-
     public void checkButton(View v) {
-
-
 
         int radioId = radioGroup.getCheckedRadioButtonId();
 
-
         radioButton = findViewById(radioId);
 
-        Toast.makeText(this, "Selected Radio Button: " + radioButton.getText(),
-                Toast.LENGTH_SHORT).show();
+
     }
 
 
