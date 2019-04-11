@@ -2,11 +2,16 @@ package com.homework.realorfake;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.preference.PreferenceManager;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceHolder;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RadioButton;
@@ -16,6 +21,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class GameActivity extends AppCompatActivity {
 
 
@@ -24,6 +32,9 @@ public class GameActivity extends AppCompatActivity {
     String value;
     ImageView imageView;
     int photoNum = 1;
+    FrameLayout frameLayout;
+    Boolean hasBeenClicked = false;
+
 
     String imageName;
     String radioName ;
@@ -55,6 +66,7 @@ public class GameActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         mSeekBar = findViewById(R.id.seekbarExample);
         mTxtValue = findViewById(R.id.seekBarValueTxt);
+
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 
@@ -107,10 +119,13 @@ public class GameActivity extends AppCompatActivity {
                 imageName="image"+ (photoNum+1);
                 radioName= radioButton.getText().toString();
                 confidenceValue=mSeekBar.getProgress();
+                hasBeenClicked = true;
 
 
 
                 Intent i = new Intent(GameActivity.this, PopUp.class);
+
+
 
 
                 photoNum += 1;
@@ -121,16 +136,37 @@ public class GameActivity extends AppCompatActivity {
                 }
 
 
+
+                //Starting PopUp activity
                 i.putExtra("variableNum", photoNum);
                 startActivity(i);
 
+
+                frameLayout = findViewById(R.id.frameLayoutMain);
+
+
+
+
                 imageview2.setImageResource(photos[photoNum]);
+
                 imageView.setVisibility(View.INVISIBLE);
 
 
 
             }
+
+
+
         });
+
+
+
+
+
+
+
+
+
 
 
     }
@@ -183,7 +219,6 @@ public class GameActivity extends AppCompatActivity {
 
 
     }
-
 
 
 
