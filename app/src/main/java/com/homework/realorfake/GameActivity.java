@@ -16,6 +16,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import com.homework.realorfake.JSONParser;
+
+
 public class GameActivity extends AppCompatActivity {
 
 
@@ -25,9 +46,18 @@ public class GameActivity extends AppCompatActivity {
     ImageView imageView;
     int photoNum = 1;
 
+
+    //ovaj dio je za bazu
     String imageName;
     String radioName ;
     int confidenceValue ;
+    String confidenceValue1;
+    //JSON
+    JSONParser jsonParser = new JSONParser();
+    private static String url_insert = "http://www.studenti.famnit.upr.si/~89161011/OLD/insert.php";
+
+    // // JSON Node names
+        private static final String TAG_SUCCESS = "success";
 
 
     //image resources
@@ -108,6 +138,9 @@ public class GameActivity extends AppCompatActivity {
                 radioName= radioButton.getText().toString();
                 confidenceValue=mSeekBar.getProgress();
 
+                confidenceValue1=Integer.toString(confidenceValue);
+
+
 
 
                 Intent i = new Intent(GameActivity.this, PopUp.class);
@@ -184,9 +217,51 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    class Insert extends AsyncTask<String, String, String> {
+
+        protected String doInBackground(String... args) {
+
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("Name", imageName));
+            params.add(new BasicNameValuePair("Radio", radioName));
+            params.add(new BasicNameValuePair("Confidence", confidenceValue1));
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            JSONObject json = jsonParser.makeHttpRequest(url_insert,
+                    "POST", params);
+
+            // check log cat fro response
+            Log.d("Create Response", json.toString());
+
+            // check for success tag
+            try {
+                int success = json.getInt(TAG_SUCCESS);
+
+                if (success == 1) {
+                    // successfully created product
+                   // Intent i = new Intent(getApplicationContext(), AllProductsActivity.class);
+                    //startActivity(i);
+
+                    // closing this screen
+                    finish();
+                } else {
+                    // failed to create product
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
 
 
 
-
+    }
 }
+
+
+
+
 
