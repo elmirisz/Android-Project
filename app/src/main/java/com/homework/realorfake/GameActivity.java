@@ -227,8 +227,9 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Toast.makeText(GameActivity.this, "GIF GOES HERE", Toast.LENGTH_LONG).show();
+                Intent intentInstructionView = new Intent(GameActivity.this, InstructionView.class);
 
+                startActivity(intentInstructionView);
 
             }
         });

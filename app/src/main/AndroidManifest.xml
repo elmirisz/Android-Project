@@ -32,6 +32,8 @@
 
             />
 
+        <activity android:name=".InstructionView"></activity>
+
     </application>
 
 </manifest>
