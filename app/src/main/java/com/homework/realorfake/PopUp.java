@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ public class PopUp extends Activity {
     int photoNum = 0;
     GameActivity gm = new GameActivity();
     ImageView image1;
-    TextView text1;
+    GameActivity gameActivity;
 
     //image resources
     public static Integer [] photos = {
@@ -62,6 +63,8 @@ public class PopUp extends Activity {
     public void addImages() {
 
 
+
+
         Intent intent = getIntent();
         int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
 
@@ -82,6 +85,9 @@ public class PopUp extends Activity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
 
 
                 finish();

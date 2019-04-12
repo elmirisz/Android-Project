@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -51,6 +53,7 @@ public class GameActivity extends AppCompatActivity {
     int photoNum = 1;
     FrameLayout frameLayout;
     Boolean hasBeenClicked = false;
+    PopUp popUp;
 
 
 
@@ -77,6 +80,8 @@ public class GameActivity extends AppCompatActivity {
             R.drawable.image5
     };
 
+    public static Integer foregroundColor = R.color.transparent;
+
 
 
     // buttons
@@ -92,6 +97,7 @@ public class GameActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         mSeekBar = findViewById(R.id.seekbarExample);
         mTxtValue = findViewById(R.id.seekBarValueTxt);
+        frameLayout = findViewById(R.id.frameLayoutMain2);
 
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
@@ -132,7 +138,7 @@ public class GameActivity extends AppCompatActivity {
 
         final ImageView imageview2 = findViewById(R.id.changePhoto);
 
-  
+
 
             //buttons and what they do
             final Button buttonApply = findViewById(R.id.applyButton);
@@ -174,11 +180,22 @@ public class GameActivity extends AppCompatActivity {
 
 
                         imageview2.setImageResource(photos[photoNum]);
+//                        frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
+
                         imageView.setVisibility(View.INVISIBLE);
 
 
 
+
+
+
+
+
+
+
                     }
+
+
 
 
 
@@ -193,6 +210,9 @@ public class GameActivity extends AppCompatActivity {
             });
 
 
+            instructionView();
+
+
 
 
         }
@@ -201,7 +221,25 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+    public void instructionView () {
 
+        ImageView help = findViewById(R.id.helpButton);
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Toast.makeText(GameActivity.this, "GIF GOES HERE", Toast.LENGTH_LONG).show();
+
+
+            }
+        });
+
+
+
+
+    }
 
 
 
