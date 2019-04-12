@@ -10,9 +10,7 @@
     >
 
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:id="@+id/mainGameLayout"
     android:layout_height="match_parent"
@@ -49,12 +47,21 @@
             <TextView
                 android:id="@+id/seekBarValueTxt"
                 android:layout_width="match_parent"
-                android:layout_height="107dp"
+                android:layout_height="115dp"
                 android:layout_below="@id/seekbarExample"
                 android:layout_marginTop="10dp"
                 android:text="0"
                 android:textAlignment="center"
                 android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/realOrFake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="REAL OR FAKE PHOTO ?" />
 
         </LinearLayout>
 
@@ -70,7 +77,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="373dp"
                 android:layout_weight="100"
-                android:background="@color/white">
+
+                android:background="@color/orange">
 
 
                 <ImageView
@@ -78,6 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="344dp"
                     android:layout_gravity="center"
+
                     app:srcCompat="@drawable/image2" />
 
                 <ImageView

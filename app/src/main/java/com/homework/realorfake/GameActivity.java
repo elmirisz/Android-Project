@@ -132,61 +132,70 @@ public class GameActivity extends AppCompatActivity {
 
         final ImageView imageview2 = findViewById(R.id.changePhoto);
 
+  
 
+            //buttons and what they do
+            final Button buttonApply = findViewById(R.id.applyButton);
+            buttonApply.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int radioId = radioGroup.getCheckedRadioButtonId();
+                    radioButton = findViewById(radioId);
+                    hasBeenClicked = true;
 
-        //buttons and what they do
-        final Button buttonApply = findViewById(R.id.applyButton);
-        buttonApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int radioId = radioGroup.getCheckedRadioButtonId();
-                radioButton = findViewById(radioId);
+                    if (radioId == R.id.fakeButton || radioId == R.id.realButton) {
 
-                imageName="image"+ (photoNum+1);
-                radioName= radioButton.getText().toString();
-                confidenceValue=mSeekBar.getProgress();
-                hasBeenClicked = true;
+                        imageName="image"+ (photoNum+1);
+                        radioName= radioButton.getText().toString();
 
-                confidenceValue1=Integer.toString(confidenceValue);
-
-
-
-
-                Intent i = new Intent(GameActivity.this, PopUp.class);
+                        confidenceValue=mSeekBar.getProgress();
+                        confidenceValue1=Integer.toString(confidenceValue);
 
 
 
 
-                photoNum += 1;
-                if (photoNum == 5) {
+                        Intent i = new Intent(GameActivity.this, PopUp.class);
 
-                    photoNum = 0;
+
+
+
+                        photoNum += 1;
+                        if (photoNum == 5) {
+
+                            photoNum = 0;
+
+                        }
+
+
+
+                        //Starting PopUp activity
+                        i.putExtra("variableNum", photoNum);
+                        startActivity(i);
+
+
+                        imageview2.setImageResource(photos[photoNum]);
+                        imageView.setVisibility(View.INVISIBLE);
+
+
+
+                    }
+
+
+
+
+
+
 
                 }
 
 
 
-                //Starting PopUp activity
-                i.putExtra("variableNum", photoNum);
-                startActivity(i);
-
-
-                frameLayout = findViewById(R.id.frameLayoutMain);
+            });
 
 
 
 
-                imageview2.setImageResource(photos[photoNum]);
-
-                imageView.setVisibility(View.INVISIBLE);
-
-
-
-            }
-
-
-
-        });
+        }
 
 
 
@@ -198,7 +207,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
-    }
+
 
     //Method for adding FAKE and REAL stamps
     public void putStamp() {
