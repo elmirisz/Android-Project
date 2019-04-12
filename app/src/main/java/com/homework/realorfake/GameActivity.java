@@ -101,6 +101,11 @@ public class GameActivity extends AppCompatActivity {
         //Unchecking radio buttons when activity resumed
         radioGroup.clearCheck();
 
+        //Hiding stamp when resumed
+        ImageView stamp1 = findViewById(R.id.stampPhoto);
+        stamp1.setVisibility(View.INVISIBLE);
+
+
     }
 
     @Override
