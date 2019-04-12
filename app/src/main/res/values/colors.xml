@@ -8,6 +8,9 @@
     <color name="blue">#2196F3</color>
     <color name="lightOrange">#DFB134</color>
     <color name="transparent">#99030303</color>
+    <color name="fullTransparent">#00FFFFFF</color>
+
+
 
 
 </resources>

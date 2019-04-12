@@ -53,7 +53,6 @@ public class GameActivity extends AppCompatActivity {
     int photoNum = 1;
     FrameLayout frameLayout;
     Boolean hasBeenClicked = false;
-    PopUp popUp;
 
 
 
@@ -80,14 +79,29 @@ public class GameActivity extends AppCompatActivity {
             R.drawable.image5
     };
 
-    public static Integer foregroundColor = R.color.transparent;
-
 
 
     // buttons
     RadioGroup radioGroup;
     RadioButton radioButton;
 
+
+    //Resuming activity
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+
+        //Delete dim background when activity resumed
+        frameLayout.setBackgroundColor(getResources().getColor(R.color.fullTransparent));
+
+        //Unchecking radio buttons when activity resumed
+        radioGroup.clearCheck();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,9 +114,9 @@ public class GameActivity extends AppCompatActivity {
         frameLayout = findViewById(R.id.frameLayoutMain2);
 
 
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup = findViewById(R.id.radioGroup);
 
-        mSeekBar.setProgress(25);
+        mSeekBar.setProgress(50);
 
         value = String.valueOf(mSeekBar.getProgress());
 
@@ -139,83 +153,66 @@ public class GameActivity extends AppCompatActivity {
         final ImageView imageview2 = findViewById(R.id.changePhoto);
 
 
+        //buttons and what they do
+        final Button buttonApply = findViewById(R.id.applyButton);
+        buttonApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioId);
+                hasBeenClicked = true;
 
-            //buttons and what they do
-            final Button buttonApply = findViewById(R.id.applyButton);
-            buttonApply.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int radioId = radioGroup.getCheckedRadioButtonId();
-                    radioButton = findViewById(radioId);
-                    hasBeenClicked = true;
+                //Check if radiobuttons have been checked, if not print out Toast message
+                if (radioId == R.id.fakeButton || radioId == R.id.realButton) {
 
-                    if (radioId == R.id.fakeButton || radioId == R.id.realButton) {
+                    imageName = "image" + (photoNum + 1);
+                    radioName = radioButton.getText().toString();
 
-                        imageName="image"+ (photoNum+1);
-                        radioName= radioButton.getText().toString();
-
-                        confidenceValue=mSeekBar.getProgress();
-                        confidenceValue1=Integer.toString(confidenceValue);
-
-
+                    confidenceValue = mSeekBar.getProgress();
+                    confidenceValue1 = Integer.toString(confidenceValue);
 
 
-                        Intent i = new Intent(GameActivity.this, PopUp.class);
+                    Intent i = new Intent(GameActivity.this, PopUp.class);
 
 
+                    photoNum += 1;
+                    if (photoNum == 5) {
 
-
-                        photoNum += 1;
-                        if (photoNum == 5) {
-
-                            photoNum = 0;
-
-                        }
-
-
-
-                        //Starting PopUp activity
-                        i.putExtra("variableNum", photoNum);
-                        startActivity(i);
-
-
-                        imageview2.setImageResource(photos[photoNum]);
-//                        frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
-
-                        imageView.setVisibility(View.INVISIBLE);
-
-
-
-
-
-
-
-
-
+                        photoNum = 0;
 
                     }
 
 
+                    //Starting PopUp activity
+                    i.putExtra("variableNum", photoNum);
+                    startActivity(i);
+
+                    //Change image when button clicked, also dim GameActivity background, to 60% transparency
+                    imageview2.setImageResource(photos[photoNum]);
+                    frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
+                    //Hide stamp from photos
+                    imageView.setVisibility(View.INVISIBLE);
 
 
+                } else {
 
 
-
-
+                    Toast.makeText(GameActivity.this, "CHOOSE FAKE OR REAL !", Toast.LENGTH_SHORT).show();
 
                 }
 
 
-
-            });
-
-
-            instructionView();
+            }
 
 
+        });
+
+        //Function for help button (GIF)
+        instructionView();
 
 
-        }
+
+    }
 
 
 
