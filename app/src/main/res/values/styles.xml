@@ -12,10 +12,13 @@
 
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowNoTitle">true</item>
 
     </style>
 
-    
+
+
+
 
 
 
