@@ -48,21 +48,12 @@
             <TextView
                 android:id="@+id/seekBarValueTxt"
                 android:layout_width="match_parent"
-                android:layout_height="115dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/seekbarExample"
                 android:layout_marginTop="10dp"
                 android:text="0"
                 android:textAlignment="center"
                 android:textSize="40sp" />
-
-            <TextView
-                android:id="@+id/realOrFake"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:text="REAL OR FAKE PHOTO ?" />
 
         </LinearLayout>
 
@@ -227,9 +218,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/frameLayoutMain2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    </FrameLayout>
+        android:layout_height="match_parent"></FrameLayout>
 
 
 </FrameLayout>
