@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayoutMain"
-
+    android:weightSum="100"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -16,6 +16,7 @@
     android:id="@+id/mainGameLayout"
     android:layout_height="match_parent"
     tools:context=".GameActivity"
+    android:layout_weight="19"
     >
 
     <LinearLayout
@@ -190,7 +191,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
+            android:layout_weight="5"
 
             android:orientation="horizontal">
 

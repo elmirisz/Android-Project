@@ -51,7 +51,7 @@ public class PopUp extends Activity {
         int height = dm.heightPixels;
 
         //here we set the percentage of pop-up window of phones resolution
-        getWindow().setLayout((int)(width * .98), (int)(height * .94));
+        getWindow().setLayout((int)(width * .98), (int)(height * 1));
 
         addImages();
 
