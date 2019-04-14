@@ -1,22 +1,13 @@
 package com.homework.realorfake;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
-import android.preference.PreferenceManager;
-import android.support.constraint.ConstraintLayout;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -24,46 +15,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Button;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
+
 
 public class GameActivity extends AppCompatActivity {
 
@@ -209,40 +175,20 @@ public class GameActivity extends AppCompatActivity {
                 //Check if radiobuttons have been checked, if not print out Toast message
                 if (radioId == R.id.fakeButton || radioId == R.id.realButton) {
 
-                    imageName = "image" + (photoNum + 1);
-                    radioName = radioButton.getText().toString();
-
-                    confidenceValue = mSeekBar.getProgress();
-                    confidenceValue1 = Integer.toString(confidenceValue);
-                    myUrl = myUrl+"?Name="+imageName+"&Radio="+radioName+"&Confidence="+confidenceValue1;
 
 
 
 
-                    Log.d("Link", myUrl);
 
-//
-//                    HttpClient Client = new DefaultHttpClient();
-//                    HttpGet httpget = new HttpGet(myUrl);
-//                    ResponseHandler<String> responseHandler = new BasicResponseHandler();
-//                    try {
-//                        Client.execute(httpget, responseHandler);
-//                    }catch (IOException e){};IOException
+
 
 
 
 
                     Intent i = new Intent(GameActivity.this, PopUp.class);
 
-                    //Instantiate new instance of our class
 
-//                    //Perform the doInBackground method, passing in our url
-//                    try{
-//                    result = getRequest.execute(myUrl).get();
-//                    }catch (ExecutionException | InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-                    ;
+
 
                     photoNum += 1;
                     if (photoNum == 5) {
@@ -255,6 +201,15 @@ public class GameActivity extends AppCompatActivity {
                     //Starting PopUp activity
                     i.putExtra("variableNum", photoNum);
                     startActivity(i);
+
+
+                    imageName = "image" + (photoNum );
+                    radioName = radioButton.getText().toString();
+
+                    confidenceValue = mSeekBar.getProgress();
+                    confidenceValue1 = Integer.toString(confidenceValue);
+                    myUrl = myUrl+"?Name="+imageName+"&Radio="+radioName+"&Confidence="+confidenceValue1;
+
 
                     //Change image when button clicked, also dim GameActivity background, to 60% transparency
                     imageview2.setImageResource(photos[photoNum]);
@@ -367,37 +322,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-//    class Insert extends AsyncTask<String, String, String> {
-//
-//        protected String doInBackground(String... args) {
-//
-//            // Building Parameters
-//            Log.d("Execute", "opet dodavanja param: execution error");
-//            List<NameValuePair> params = new ArrayList<NameValuePair>();
-//
-//
-//                params.add(new BasicNameValuePair("Name", imageName));
-//                params.add(new BasicNameValuePair("Radio", radioName));
-//                params.add(new BasicNameValuePair("Confidence", confidenceValue1));
-//
-//                // getting JSON Object
-//                // Note that create product url accepts POST method
-//                JSONObject json = jsonParser.makeHttpRequest(url_insert,
-//                        "POST", params);
-//
-//                // check log cat fro response
-//                Log.d("Create Response", json.toString());
-//
-//
-//
-//
-//
-//
-//            // check for success tag
-//
-//
-//            return null;
-//        }
+//   //request to db
 
     class RequestTask extends AsyncTask<String, String, String>{
 
