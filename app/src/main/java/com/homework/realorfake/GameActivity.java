@@ -208,7 +208,7 @@ public class GameActivity extends AppCompatActivity {
 
                     confidenceValue = mSeekBar.getProgress();
                     confidenceValue1 = Integer.toString(confidenceValue);
-                    myUrl = myUrl+"?Name="+imageName+"&Radio="+radioName+"&Confidence="+confidenceValue1;
+                    //myUrl = myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1;
 
 
                     //Change image when button clicked, also dim GameActivity background, to 60% transparency
@@ -216,9 +216,10 @@ public class GameActivity extends AppCompatActivity {
                     frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
                     //Hide stamp from photos
                     imageView.setVisibility(View.INVISIBLE);
-
-
-                    new RequestTask().execute(myUrl);
+                    //myUrl = myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1;
+                    Log.d("LINK", myUrl);
+                    Log.d("photoName", photoNum+"");
+                    new RequestTask().execute( myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1);
 
 
 
