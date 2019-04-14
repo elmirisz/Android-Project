@@ -324,7 +324,7 @@ public class GameActivity extends AppCompatActivity {
 
 //   //request to db
 
-    class RequestTask extends AsyncTask<String, String, String>{
+    public   class  RequestTask extends AsyncTask<String, String, String>{
 
         @Override
         protected String doInBackground(String... uri) {
