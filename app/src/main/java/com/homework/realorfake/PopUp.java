@@ -50,8 +50,8 @@ public class PopUp extends Activity {
 //here i will create global variables for textviews, all of them
     TextView gridText1 ;
     TextView gridText2;
-//    TextView gridText3 = (TextView)findViewById(R.id.gridText3);
-//    TextView gridText4 = (TextView)findViewById(R.id.gridText4);
+    TextView gridText3 ;
+    TextView gridText4 ;
 //    TextView gridText5 = (TextView)findViewById(R.id.gridText5);
 //    TextView gridText6 = (TextView)findViewById(R.id.gridText6);
 
@@ -59,7 +59,13 @@ public class PopUp extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //this is code for row 1
         new RequestTask(1).execute("http://www.studenti.famnit.upr.si/~89161011/OLD/current.php");
+        //this is code for row 2
+
+        new RequestTask(2).execute("http://www.studenti.famnit.upr.si/~89161011/OLD/fake.php");
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pop_up);
 
@@ -193,8 +199,7 @@ public class PopUp extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             if(row==1){
-            gridText1 = (TextView)findViewById(R.id.gridText1);
-            gridText1.setText("Evo vidis");
+
             try {
                 JSONObject obj = new JSONObject(result);
                 Log.d("AA", "BBBBBBBbbbbbbbbbbbbbbb: ");
@@ -207,13 +212,35 @@ public class PopUp extends Activity {
                 gridText1 = (TextView)findViewById(R.id.gridText1);
                 gridText2 = (TextView)findViewById(R.id.gridText2);
                 gridText1.setText("You think this is "+b.getString("Radio"));
-                gridText2.setText("With confidence: "+b.getString("Confidence"));
+                gridText2.setText("With confidence: "+b.getString("Confidence")+"%");
 
 
 
             } catch (JSONException e) {
                 e.printStackTrace();
-            }}// end of if
+            }}else if(row==2){
+                try {
+                    JSONObject obj = new JSONObject(result);
+
+                    JSONArray a = obj.getJSONArray("result");
+                    JSONObject b = (JSONObject)a.get(0);
+                    //ovdje je konacno proradilo
+                    Log.d("Drugi red people", b.getString("People"));
+                    // konacno radi i tu
+                    Log.d("Drugi red confidence", b.getString("Confidence"));
+                    gridText3 = (TextView)findViewById(R.id.gridText3);
+                    gridText4 = (TextView)findViewById(R.id.gridText4);
+
+                    gridText3.setText(b.getString("People") + "% of people thinks this is fake");
+                    gridText4.setText("With confidence: "+b.getString("Confidence")+"%");
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
 
 
         }
