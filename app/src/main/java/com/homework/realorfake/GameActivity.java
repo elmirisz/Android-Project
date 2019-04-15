@@ -43,16 +43,15 @@ public class GameActivity extends AppCompatActivity {
     Boolean hasBeenClicked = false;
 
 
-
     //ovaj dio je za bazu
     String imageName;
-    String radioName ;
-    int confidenceValue ;
+    String radioName;
+    int confidenceValue;
     String confidenceValue1;
     //JSON
 
     //Some url endpoint that you may have
-    String myUrl =  "http://www.studenti.famnit.upr.si/~89161011/OLD/insert.php";
+    String myUrl = "http://www.studenti.famnit.upr.si/~89161011/OLD/insert.php";
     //String to place our result in
     String result;
 
@@ -61,11 +60,11 @@ public class GameActivity extends AppCompatActivity {
     private static String url_insert = "http://www.studenti.famnit.upr.si/~89161011/OLD/insert.php";
 
     // // JSON Node names
-        private static final String TAG_SUCCESS = "success";
+    private static final String TAG_SUCCESS = "success";
 
 
     //image resources
-    public static Integer [] photos = {
+    public static Integer[] photos = {
 
             R.drawable.image1,
             R.drawable.image2,
@@ -73,7 +72,6 @@ public class GameActivity extends AppCompatActivity {
             R.drawable.image4,
             R.drawable.image5
     };
-
 
 
     // buttons
@@ -103,13 +101,7 @@ public class GameActivity extends AppCompatActivity {
         mSeekBar.setProgress(50);
 
 
-
     }
-
-
-
-
-
 
 
     @Override
@@ -133,9 +125,6 @@ public class GameActivity extends AppCompatActivity {
 
         //Function for putting STAMP on photos
         putStamp();
-
-
-
 
 
         mSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -179,18 +168,7 @@ public class GameActivity extends AppCompatActivity {
                 if (radioId == R.id.fakeButton || radioId == R.id.realButton) {
 
 
-
-
-
-
-
-
-
-
-
                     Intent i = new Intent(GameActivity.this, PopUp.class);
-
-
 
 
                     photoNum += 1;
@@ -206,7 +184,7 @@ public class GameActivity extends AppCompatActivity {
                     startActivity(i);
 
 
-                    imageName = "image" + (photoNum );
+                    imageName = "image" + (photoNum);
                     radioName = radioButton.getText().toString();
 
                     confidenceValue = mSeekBar.getProgress();
@@ -221,9 +199,8 @@ public class GameActivity extends AppCompatActivity {
                     imageView.setVisibility(View.INVISIBLE);
                     //myUrl = myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1;
                     Log.d("LINK", myUrl);
-                    Log.d("photoName", photoNum+"");
-                    new RequestTask().execute( myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1);
-
+                    Log.d("photoName", photoNum + "");
+                    new RequestTask().execute(myUrl + "?Name=image" + photoNum + "&Radio=" + radioName + "&Confidence=" + confidenceValue1);
 
 
                 } else {
@@ -240,10 +217,8 @@ public class GameActivity extends AppCompatActivity {
         });
 
 
-
         //Function for help button (GIF)
         instructionView();
-
 
 
     }
@@ -255,7 +230,6 @@ public class GameActivity extends AppCompatActivity {
 //        frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
 
 
-
     }
 
     @Override
@@ -265,7 +239,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public void instructionView () {
+    public void instructionView() {
 
         ImageView help = findViewById(R.id.helpButton);
 
@@ -284,14 +258,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
 
-
-
     }
-
-
-
-
-
 
 
     //Method for adding FAKE and REAL stamps
@@ -329,9 +296,7 @@ public class GameActivity extends AppCompatActivity {
         });
 
 
-
     }
-
 
 
     public void checkButton(View v) {
@@ -345,7 +310,7 @@ public class GameActivity extends AppCompatActivity {
 
 //   //request to db
 
-    public   class  RequestTask extends AsyncTask<String, String, String>{
+    public class RequestTask extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... uri) {
@@ -355,12 +320,12 @@ public class GameActivity extends AppCompatActivity {
             try {
                 response = httpclient.execute(new HttpGet(uri[0]));
                 StatusLine statusLine = response.getStatusLine();
-                if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+                if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                     response.getEntity().writeTo(out);
                     responseString = out.toString();
                     out.close();
-                } else{
+                } else {
                     //Closes the connection.
                     response.getEntity().getContent().close();
                     throw new IOException(statusLine.getReasonPhrase());
@@ -381,8 +346,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
-
-    }
+}
 
 
 

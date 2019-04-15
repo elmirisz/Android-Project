@@ -23,8 +23,7 @@ public class InstructionView extends Activity {
         int height = dm.heightPixels;
 
         //here we set the percentage of pop-up window of phones resolution
-        getWindow().setLayout((int)(width * .95), (int)(height * 1));
-
+        getWindow().setLayout((int) (width * .95), (int) (height * 1));
 
 
     }

@@ -9,8 +9,7 @@
     <color name="lightOrange">#DFB134</color>
     <color name="transparent">#99030303</color>
     <color name="fullTransparent">#00FFFFFF</color>
-
-
+    <color name="black">#000000</color>
 
 
 </resources>

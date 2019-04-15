@@ -8,8 +8,9 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN_TIME_OUT=2000;
-   // #After completion of 2000 ms, the next activity will get started.
+    private static int SPLASH_SCREEN_TIME_OUT = 2000;
+
+    // #After completion of 2000 ms, the next activity will get started.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i=new Intent(MainActivity.this,
+                Intent i = new Intent(MainActivity.this,
                         InstructionActivity.class);
                 //Intent is used to switch from one activity to another.
 

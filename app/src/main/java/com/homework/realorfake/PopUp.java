@@ -35,10 +35,10 @@ public class PopUp extends Activity {
     JSONObject obj;
     String radio;
     String confidence;
-    public static Integer[] answers = {0,1,0,1,1};
+    public static Integer[] answers = {0, 1, 0, 1, 1};
 
     //image resources
-    public static Integer [] photos = {
+    public static Integer[] photos = {
 
             R.drawable.image1,
             R.drawable.image2,
@@ -48,15 +48,14 @@ public class PopUp extends Activity {
     };
 
 
-//here i will create global variables for textviews, all of them
-    TextView gridText1 ;
+    //here i will create global variables for textviews, all of them
+    TextView gridText1;
     TextView gridText2;
-    TextView gridText3 ;
-    TextView gridText4 ;
-    TextView gridText5 ;
+    TextView gridText3;
+    TextView gridText4;
+    TextView gridText5;
     TextView gridText6;
     TextView gridText;
-
 
 
     @Override
@@ -74,7 +73,6 @@ public class PopUp extends Activity {
         setContentView(R.layout.pop_up);
 
 
-
         //Taking our devices screen size in pixels and creating new values according to them
         //We take phones resolution
         DisplayMetrics dm = new DisplayMetrics();
@@ -84,7 +82,7 @@ public class PopUp extends Activity {
         int height = dm.heightPixels;
 
         //here we set the percentage of pop-up window of phones resolution
-        getWindow().setLayout((int)(width * .98), (int)(height * 1));
+        getWindow().setLayout((int) (width * .98), (int) (height * 1));
 
         addImages();
 //        try{
@@ -103,37 +101,27 @@ public class PopUp extends Activity {
 //        catch (JSONException e){}
 
 
-
-
-
-
-
-
-
-
-
     }
 
 
     public void addImages() {
 
 
-
-
         Intent intent = getIntent();
+
         int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
-        photoNum=temp;
+        photoNum = temp;
         Log.e("test photo temp num", " " + temp);
 
 
         //Adding images to PopUp activity
         image1 = findViewById(R.id.changePhotoPop);
 
-        if(temp==0){
+        if (temp == 0) {
             image1.setImageResource(photos[4]);
-        }else{
-            image1.setImageResource(photos[temp-1]);}
-
+        } else {
+            image1.setImageResource(photos[temp - 1]);
+        }
 
 
         final Button buttonNext = findViewById(R.id.nextButton);
@@ -142,26 +130,20 @@ public class PopUp extends Activity {
             public void onClick(View v) {
 
 
-
-
                 finish();
 
             }
         });
 
 
-
-
-
     }
 
-    public   class  RequestTask extends AsyncTask<String, String, String> {
+    public class RequestTask extends AsyncTask<String, String, String> {
         int row;
 
         public RequestTask(int i) {
-            this.row=i;
+            this.row = i;
         }
-
 
 
         @Override
@@ -169,15 +151,19 @@ public class PopUp extends Activity {
             HttpClient httpclient = new DefaultHttpClient();
             HttpResponse response;
             String responseString = null;
+
+
             try {
                 response = httpclient.execute(new HttpGet(uri[0]));
                 StatusLine statusLine = response.getStatusLine();
-                if(statusLine.getStatusCode() == HttpStatus.SC_OK){
+                if (statusLine.getStatusCode() == HttpStatus.SC_OK) {
                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                     response.getEntity().writeTo(out);
                     responseString = out.toString();
+
+
                     out.close();
-                } else{
+                } else {
                     //Closes the connection.
                     response.getEntity().getContent().close();
                     throw new IOException(statusLine.getReasonPhrase());
@@ -188,10 +174,8 @@ public class PopUp extends Activity {
                 //TODO Handle problems..
             }
 
-            responseJSON=responseString;
 
-
-
+            responseJSON = responseString;
 
 
             Log.d("responseJSON", responseJSON);
@@ -202,68 +186,69 @@ public class PopUp extends Activity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if(row==1){
-
-            try {
-                JSONObject obj = new JSONObject(result);
-                Log.d("AA", "BBBBBBBbbbbbbbbbbbbbbb: ");
-                JSONArray a = obj.getJSONArray("result");
-                JSONObject b = (JSONObject)a.get(0);
-                //ovdje je konacno proradilo
-                Log.d("HEJ RADI", b.getString("Radio"));
-                // konacno radi i tu
-                Log.d("HEJ RADI", b.getString("Confidence"));
-                gridText1 = (TextView)findViewById(R.id.gridText1);
-                gridText2 = (TextView)findViewById(R.id.gridText2);
-                gridText1.setText("You think this is "+b.getString("Radio"));
-                gridText2.setText("With confidence: "+b.getString("Confidence")+"%");
+            if (row == 1) {
 
 
+                try {
+                    JSONObject obj = new JSONObject(result);
+                    Log.d("AA", "BBBBBBBbbbbbbbbbbbbbbb: ");
+                    JSONArray a = obj.getJSONArray("result");
+                    JSONObject b = (JSONObject) a.get(0);
+                    //ovdje je konacno proradilo
+                    Log.d("HEJ RADI", b.getString("Radio"));
+                    // konacno radi i tu
+                    Log.d("HEJ RADI", b.getString("Confidence"));
+                    gridText1 = (TextView) findViewById(R.id.gridText1);
+                    gridText2 = (TextView) findViewById(R.id.gridText2);
+                    gridText1.setText("You think this is " + b.getString("Radio"));
+                    gridText2.setText("With confidence: " + b.getString("Confidence") + "%");
 
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }}else if(row==2){
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                }
+            } else if (row == 2) {
                 try {
                     JSONObject obj = new JSONObject(result);
 
                     JSONArray a = obj.getJSONArray("result");
-                    JSONObject b = (JSONObject)a.get(0);
+                    JSONObject b = (JSONObject) a.get(0);
                     //ovdje je konacno proradilo
                     Log.d("Drugi red people", b.getString("People"));
                     // konacno radi i tu
                     Log.d("Drugi red confidence", b.getString("Confidence"));
-                    gridText3 = (TextView)findViewById(R.id.gridText3);
-                    gridText4 = (TextView)findViewById(R.id.gridText4);
+                    gridText3 = (TextView) findViewById(R.id.gridText3);
+                    gridText4 = (TextView) findViewById(R.id.gridText4);
 
                     gridText3.setText(b.getString("People") + "% of people thinks this is fake");
-                    gridText4.setText("With confidence: "+b.getString("Confidence")+"%");
-
+                    gridText4.setText("With confidence: " + b.getString("Confidence") + "%");
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } else if (row==3){
+            } else if (row == 3) {
                 try {
                     JSONObject obj = new JSONObject(result);
 
                     JSONArray a = obj.getJSONArray("result");
-                    JSONObject b = (JSONObject)a.get(0);
+                    JSONObject b = (JSONObject) a.get(0);
                     //ovdje je konacno proradilo
                     Log.d("Treci red people", b.getString("People"));
                     // konacno radi i tu
                     Log.d("Treci red confidence", b.getString("Confidence"));
-                    gridText5 = (TextView)findViewById(R.id.gridText5);
-                    gridText6 = (TextView)findViewById(R.id.gridText6);
-                    gridText = (TextView)findViewById(R.id.textView);
+                    gridText5 = (TextView) findViewById(R.id.gridText5);
+                    gridText6 = (TextView) findViewById(R.id.gridText6);
+                    gridText = (TextView) findViewById(R.id.textView);
 
                     gridText5.setText(b.getString("People") + "% of people thinks this is real");
-                    gridText6.setText("With confidence: "+b.getString("Confidence")+"%");
-                    Log.d("DA VIDIMO PASEL SLIKA",photoNum+"");
+                    gridText6.setText("With confidence: " + b.getString("Confidence") + "%");
+                    Log.d("DA VIDIMO PASEL SLIKA", photoNum + "");
                     // konacno radi i tu
-                    if(answers[photoNum]==1){
+                    if (answers[photoNum] == 1) {
                         gridText.setText("THIS PICTURE IS REAL");
-                    }else{
+                    } else {
                         gridText.setText("THIS PICTURE IS FAKE");
                     }
 
@@ -274,17 +259,8 @@ public class PopUp extends Activity {
             }
 
 
-
-
         }
     }
-
-
-
-
-
-
-
 
 
 }
