@@ -35,6 +35,7 @@ public class PopUp extends Activity {
     JSONObject obj;
     String radio;
     String confidence;
+    public static Integer[] answers = {0,1,0,1,1};
 
     //image resources
     public static Integer [] photos = {
@@ -54,6 +55,7 @@ public class PopUp extends Activity {
     TextView gridText4 ;
     TextView gridText5 ;
     TextView gridText6;
+    TextView gridText;
 
 
 
@@ -120,7 +122,7 @@ public class PopUp extends Activity {
 
         Intent intent = getIntent();
         int temp = intent.getIntExtra("variableNum", 0); // here 0 is the default value
-
+        photoNum=temp;
         Log.e("test photo temp num", " " + temp);
 
 
@@ -253,10 +255,17 @@ public class PopUp extends Activity {
                     Log.d("Treci red confidence", b.getString("Confidence"));
                     gridText5 = (TextView)findViewById(R.id.gridText5);
                     gridText6 = (TextView)findViewById(R.id.gridText6);
+                    gridText = (TextView)findViewById(R.id.textView);
 
                     gridText5.setText(b.getString("People") + "% of people thinks this is real");
                     gridText6.setText("With confidence: "+b.getString("Confidence")+"%");
-
+                    Log.d("DA VIDIMO PASEL SLIKA",photoNum+"");
+                    // konacno radi i tu
+                    if(answers[photoNum]==1){
+                        gridText.setText("THIS PICTURE IS REAL");
+                    }else{
+                        gridText.setText("THIS PICTURE IS FAKE");
+                    }
 
 
                 } catch (JSONException e) {
