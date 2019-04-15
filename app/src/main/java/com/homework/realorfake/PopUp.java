@@ -52,8 +52,8 @@ public class PopUp extends Activity {
     TextView gridText2;
     TextView gridText3 ;
     TextView gridText4 ;
-//    TextView gridText5 = (TextView)findViewById(R.id.gridText5);
-//    TextView gridText6 = (TextView)findViewById(R.id.gridText6);
+    TextView gridText5 ;
+    TextView gridText6;
 
 
 
@@ -65,6 +65,8 @@ public class PopUp extends Activity {
 
         new RequestTask(2).execute("http://www.studenti.famnit.upr.si/~89161011/OLD/fake.php");
 
+        //this is code for row 3
+        new RequestTask(3).execute("http://www.studenti.famnit.upr.si/~89161011/OLD/real.php");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pop_up);
@@ -239,7 +241,29 @@ public class PopUp extends Activity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            } else if (row==3){
+                try {
+                    JSONObject obj = new JSONObject(result);
+
+                    JSONArray a = obj.getJSONArray("result");
+                    JSONObject b = (JSONObject)a.get(0);
+                    //ovdje je konacno proradilo
+                    Log.d("Treci red people", b.getString("People"));
+                    // konacno radi i tu
+                    Log.d("Treci red confidence", b.getString("Confidence"));
+                    gridText5 = (TextView)findViewById(R.id.gridText5);
+                    gridText6 = (TextView)findViewById(R.id.gridText6);
+
+                    gridText5.setText(b.getString("People") + "% of people thinks this is real");
+                    gridText6.setText("With confidence: "+b.getString("Confidence")+"%");
+
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+
 
 
 
