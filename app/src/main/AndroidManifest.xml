@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,8 +29,9 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+               />
             </intent-filter>
+
         </activity>
         <activity android:name=".PopUp"
             android:theme="@style/customPopUpTheme"
@@ -38,7 +40,11 @@
 
             />
 
-        <activity android:name=".InstructionView"></activity>
+        <activity android:name=".InstructionView"
+            android:theme="@style/customPopUpTheme">
+
+
+        </activity>
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
     </application>

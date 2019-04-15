@@ -100,6 +100,9 @@ public class GameActivity extends AppCompatActivity {
         ImageView stamp1 = findViewById(R.id.stampPhoto);
         stamp1.setVisibility(View.INVISIBLE);
 
+        mSeekBar.setProgress(50);
+
+
 
     }
 
@@ -236,6 +239,8 @@ public class GameActivity extends AppCompatActivity {
 
         });
 
+
+
         //Function for help button (GIF)
         instructionView();
 
@@ -243,9 +248,22 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+//        frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
 
 
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+
+    }
 
     public void instructionView () {
 
@@ -255,6 +273,8 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+                onPause();
 
                 Intent intentInstructionView = new Intent(GameActivity.this, InstructionView.class);
 
