@@ -11,13 +11,16 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.VideoView;
 
+
 public class MainActivity extends AppCompatActivity {
 
 
 
     private static int SPLASH_SCREEN_TIME_OUT = 2000;
 
+
     // #After completion of 2000 ms, the next activity will get started.
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
                 //the current activity will get finished.
             }
-        }, SPLASH_SCREEN_TIME_OUT);
+        },
+                SPLASH_SCREEN_TIME_OUT);
     }
 }

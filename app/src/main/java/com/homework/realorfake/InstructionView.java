@@ -16,6 +16,7 @@ public class InstructionView extends Activity {
 
     //Here we define the videov, which we use for video instruction
     VideoView videov;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +24,7 @@ public class InstructionView extends Activity {
 
 
         //WE ARE ALSO MAKING INSTRUCTION VIEW AS A POP UP
+
 
         //Taking our devices screen size in pixels and creating new values according to them
         //We take phones resolution

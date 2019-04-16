@@ -27,6 +27,7 @@ import java.io.IOException;
 
 public class PopUp extends Activity {
 
+
     String responseJSON;
     int photoNum = 0;
     GameActivity gm = new GameActivity();
@@ -36,6 +37,7 @@ public class PopUp extends Activity {
     String radio;
     String confidence;
     public static Integer[] answers = {0, 1, 0, 1, 1};
+
 
     //image resources
     public static Integer[] photos = {
@@ -58,6 +60,7 @@ public class PopUp extends Activity {
     TextView gridText;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //this is code for row 1
@@ -78,11 +81,14 @@ public class PopUp extends Activity {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
+        //defined width
         int width = dm.widthPixels;
+        //defined height
         int height = dm.heightPixels;
 
         //here we set the percentage of pop-up window of phones resolution
         getWindow().setLayout((int) (width * .98), (int) (height * 1));
+
 
         addImages();
 //        try{
@@ -98,6 +104,7 @@ public class PopUp extends Activity {
 //
 //
 //        }
+
 //        catch (JSONException e){}
 
 
@@ -139,11 +146,14 @@ public class PopUp extends Activity {
     }
 
     public class RequestTask extends AsyncTask<String, String, String> {
+
         int row;
+
 
         public RequestTask(int i) {
             this.row = i;
         }
+
 
 
         @Override
@@ -163,6 +173,7 @@ public class PopUp extends Activity {
 
 
                     out.close();
+
                 } else {
                     //Closes the connection.
                     response.getEntity().getContent().close();
@@ -175,6 +186,7 @@ public class PopUp extends Activity {
             }
 
 
+
             responseJSON = responseString;
 
 
@@ -182,6 +194,7 @@ public class PopUp extends Activity {
 
             return responseString;
         }
+
 
         @Override
         protected void onPostExecute(String result) {
@@ -213,11 +226,13 @@ public class PopUp extends Activity {
                     JSONObject obj = new JSONObject(result);
 
                     JSONArray a = obj.getJSONArray("result");
+
                     JSONObject b = (JSONObject) a.get(0);
                     //ovdje je konacno proradilo
                     Log.d("Drugi red people", b.getString("People"));
                     // konacno radi i tu
                     Log.d("Drugi red confidence", b.getString("Confidence"));
+
                     gridText3 = (TextView) findViewById(R.id.gridText3);
                     gridText4 = (TextView) findViewById(R.id.gridText4);
 
@@ -229,21 +244,26 @@ public class PopUp extends Activity {
                     e.printStackTrace();
                 }
             } else if (row == 3) {
+
+
                 try {
                     JSONObject obj = new JSONObject(result);
 
                     JSONArray a = obj.getJSONArray("result");
+
                     JSONObject b = (JSONObject) a.get(0);
                     //ovdje je konacno proradilo
                     Log.d("Treci red people", b.getString("People"));
                     // konacno radi i tu
                     Log.d("Treci red confidence", b.getString("Confidence"));
+
                     gridText5 = (TextView) findViewById(R.id.gridText5);
                     gridText6 = (TextView) findViewById(R.id.gridText6);
                     gridText = (TextView) findViewById(R.id.textView);
 
                     gridText5.setText(b.getString("People") + "% of people thinks this is real");
                     gridText6.setText("With confidence: " + b.getString("Confidence") + "%");
+
                     Log.d("DA VIDIMO PASEL SLIKA", photoNum + "");
                     // konacno radi i tu
                     if (answers[photoNum] == 1) {
@@ -255,11 +275,14 @@ public class PopUp extends Activity {
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+
                 }
+
             }
 
 
         }
+
     }
 
 

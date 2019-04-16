@@ -219,11 +219,14 @@ public class GameActivity extends AppCompatActivity {
 
 
                     //Change image when button clicked, also dim GameActivity background, to 60% transparency
+
                     imageview2.setImageResource(photos[photoNum]);
                     frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
 
+
                     //Hide stamp from photos
                     imageView.setVisibility(View.INVISIBLE);
+
 
                     //myUrl = myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1;
                     Log.d("LINK", myUrl);
@@ -246,6 +249,8 @@ public class GameActivity extends AppCompatActivity {
 
 
         //Function for help button (GIF)
+        /*In function instructionView we have defined the values ​​and
+        methods for the video gif */
         instructionView();
 
 
@@ -258,7 +263,9 @@ public class GameActivity extends AppCompatActivity {
         super.onStop();
 
 
+
 //        frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
+
 
 
     }
@@ -270,12 +277,14 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+
     public void instructionView() {
 
 
         ImageView help = findViewById(R.id.helpButton);
 
         help.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
@@ -316,6 +325,7 @@ public class GameActivity extends AppCompatActivity {
 
 
             }
+
         });
 
 
@@ -332,6 +342,7 @@ public class GameActivity extends AppCompatActivity {
 
 
             }
+
         });
 
 
@@ -378,6 +389,7 @@ public class GameActivity extends AppCompatActivity {
             }
             return responseString;
         }
+
 
 
         @Override
