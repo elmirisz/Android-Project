@@ -9,7 +9,8 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue">
+    android:background="@color/blue"
+    >
 
 
     //defined LinearLayout
@@ -23,7 +24,8 @@
 
         tools:context="com.setheightwidthpercentage_android_examples.com.GameActivity"
         tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        >
 
 
         //defined Image View
@@ -60,7 +62,8 @@
             app:layout_constraintBottom_toTopOf="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/changePhotoPop">
+            app:layout_constraintTop_toBottomOf="@+id/changePhotoPop"
+            >
 
             //defined TextView
             <TextView

@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange"
-    tools:context="com.homework.realorfake.MainActivity">
+    tools:context="com.homework.realorfake.MainActivity"
+    >
 
 
 
@@ -26,7 +27,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.447"
-        app:srcCompat="@drawable/splash" />
+        app:srcCompat="@drawable/splash"
+        />
 
 
 

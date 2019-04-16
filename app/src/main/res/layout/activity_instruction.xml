@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,6 +9,7 @@
     android:layout_height="match_parent"
     tools:context=".InstructionActivity"
     >
+
 
     //defined LinearLayout
     <LinearLayout
@@ -27,7 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="15"
             android:background="#4682B4"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
 
             //defined TextView
@@ -40,7 +43,9 @@
                 android:text="@string/upper_text"
                 android:textColor="@color/white"
 
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                />
+
 
         </LinearLayout>
 
@@ -53,7 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="70"
             android:background="@drawable/instructions"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
 
             //dedined ImageView
@@ -62,7 +68,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@drawable/instructions"
-                android:id="@+id/layout_instruction"/>
+                android:id="@+id/layout_instruction"
+                />
 
 
 
