@@ -2,6 +2,7 @@
 
 <!--cijeli zaslon-->
 <android.support.constraint.ConstraintLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +12,9 @@
     android:background="@color/blue">
 
 
+    //defined LinearLayout
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/blue"
@@ -22,7 +25,10 @@
         tools:layout_editor_absoluteX="122dp"
         tools:layout_editor_absoluteY="0dp">
 
+
+        //defined Image View
         <ImageView
+
             android:id="@+id/changePhotoPop"
             android:layout_width="wrap_content"
             android:layout_height="293dp"
@@ -33,10 +39,14 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/image2" />
+            app:srcCompat="@drawable/image2"
+            />
 
 
+        //defined GridLayout
         <GridLayout
+
+
             android:id="@+id/gridLayout"
             android:layout_width="match_parent"
             android:layout_height="203dp"
@@ -52,9 +62,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/changePhotoPop">
 
-
+            //defined TextView
             <TextView
+
                 android:id="@+id/gridText1"
+
 
                 android:layout_width="210dp"
                 android:layout_height="82dp"
@@ -67,9 +79,13 @@
 
 
                 android:layout_row="0"
-                android:layout_column="0" />
+                android:layout_column="0"
+                />
 
+
+            //defined TextView
             <TextView
+
                 android:id="@+id/gridText2"
 
                 android:layout_width="184dp"
@@ -81,9 +97,13 @@
                 android:text="Text 2"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                />
 
+
+            //defined TextView
             <TextView
+
                 android:id="@+id/gridText3"
 
                 android:layout_width="210dp"
@@ -94,9 +114,13 @@
                 android:text="Text 3"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                />
 
+
+            //defined TextView
             <TextView
+
                 android:id="@+id/gridText4"
 
                 android:layout_width="184dp"
@@ -105,9 +129,13 @@
                 android:text="Text 4"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                />
 
+
+            //defined TextView
             <TextView
+
                 android:id="@+id/gridText5"
 
                 android:layout_width="211dp"
@@ -118,9 +146,13 @@
                 android:text="Text 5"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                />
 
+
+            //defined TextView
             <TextView
+
                 android:id="@+id/gridText6"
 
                 android:layout_width="184dp"
@@ -129,13 +161,17 @@
                 android:text="Text 6"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                />
 
 
+         //defined GirdLayout
         </GridLayout>
 
 
+        //defined TextView
         <TextView
+
             android:id="@+id/textView"
             android:layout_width="373dp"
             android:layout_height="wrap_content"
@@ -153,9 +189,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.363"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+            />
 
+
+        //defined Button
         <Button
+
             android:id="@+id/nextButton"
             android:layout_width="match_parent"
             android:layout_height="59dp"
@@ -171,7 +211,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            />
+
 
     </LinearLayout>
+
+    
 </android.support.constraint.ConstraintLayout>
