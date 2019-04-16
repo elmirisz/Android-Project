@@ -37,20 +37,34 @@ import android.widget.VideoView;
 
 public class GameActivity extends AppCompatActivity {
 
+    //here we have defined:
+
+    //imageView
     ImageView help;
+    //SeekBar as mSeekBar
     SeekBar mSeekBar;
+    //TextView as mTxtValue
     TextView mTxtValue;
+    //String as value
     String value;
+    //ImageView as imageView
     ImageView imageView;
+    //int photoNum as 1
     int photoNum = 1;
+    //FrameLayout as FrameLayout
     FrameLayout frameLayout;
+    //Boolean hasBeenClicked as false
     Boolean hasBeenClicked = false;
 
 
     //ovaj dio je za bazu
+    //imageName we defined it as string
     String imageName;
+    //radioName we defined it as string
     String radioName;
+    //confidenceValue we defined it as int
     int confidenceValue;
+    //condfidenceValuer we defined it as
     String confidenceValue1;
     //JSON
 
@@ -70,6 +84,7 @@ public class GameActivity extends AppCompatActivity {
     //image resources
     public static Integer[] photos = {
 
+            //the name of the photo in the resource
             R.drawable.image1,
             R.drawable.image2,
             R.drawable.image3,
@@ -116,12 +131,15 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
 
-
+        //radioGroup is called id value radioGroup
         radioGroup = findViewById(R.id.radioGroup);
+        // mSeekBar is called id value seekbarExample
         mSeekBar = findViewById(R.id.seekbarExample);
+        //mTxtValue is called id value seekBarValueTxt
         mTxtValue = findViewById(R.id.seekBarValueTxt);
+        //frameLayout is called id value frameLayoutMain2
         frameLayout = findViewById(R.id.frameLayoutMain2);
-
+        //radioGroup is called id value radioGroup
         radioGroup = findViewById(R.id.radioGroup);
 
         mSeekBar.setProgress(50);
@@ -194,6 +212,7 @@ public class GameActivity extends AppCompatActivity {
                     imageName = "image" + (photoNum);
                     radioName = radioButton.getText().toString();
 
+                    //confidenceVlue we call on mSeekBar
                     confidenceValue = mSeekBar.getProgress();
                     confidenceValue1 = Integer.toString(confidenceValue);
                     //myUrl = myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1;
@@ -202,8 +221,10 @@ public class GameActivity extends AppCompatActivity {
                     //Change image when button clicked, also dim GameActivity background, to 60% transparency
                     imageview2.setImageResource(photos[photoNum]);
                     frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
+
                     //Hide stamp from photos
                     imageView.setVisibility(View.INVISIBLE);
+
                     //myUrl = myUrl+"?Name=image"+photoNum+"&Radio="+radioName+"&Confidence="+confidenceValue1;
                     Log.d("LINK", myUrl);
                     Log.d("photoName", photoNum + "");
@@ -236,6 +257,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
+
 //        frameLayout.setBackgroundColor(getResources().getColor(R.color.transparent));
 
 
@@ -249,6 +271,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void instructionView() {
+
 
         ImageView help = findViewById(R.id.helpButton);
 
@@ -275,29 +298,36 @@ public class GameActivity extends AppCompatActivity {
 
 
         imageView = findViewById(R.id.stampPhoto);
-
+        //button for fake
         RadioButton button1 = findViewById(R.id.fakeButton);
+        //button for real
         RadioButton button2 = findViewById(R.id.realButton);
+
 
         //Checking if FAKE button has been clicked
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                //calling the picture out of the resource
                 imageView.setImageResource(R.drawable.stamp1);
+                //setting to be visible
                 imageView.setVisibility(View.VISIBLE);
 
 
             }
         });
+
+
         //Checking if REAL button has been clicked
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
+                //calling the picture out of the resource
                 imageView.setImageResource(R.drawable.stamp2);
+                //setting to be visible
                 imageView.setVisibility(View.VISIBLE);
 
 
@@ -307,7 +337,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-
+    //method for checkButton
     public void checkButton(View v) {
 
         int radioId = radioGroup.getCheckedRadioButtonId();
@@ -317,9 +347,11 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+
 //   //request to db
 
     public class RequestTask extends AsyncTask<String, String, String> {
+
 
         @Override
         protected String doInBackground(String... uri) {
@@ -347,11 +379,14 @@ public class GameActivity extends AppCompatActivity {
             return responseString;
         }
 
+
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             //Do anything with response..
+
         }
+
     }
 
 
