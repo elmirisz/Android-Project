@@ -1,12 +1,19 @@
 package com.homework.realorfake;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     private static int SPLASH_SCREEN_TIME_OUT = 2000;
 

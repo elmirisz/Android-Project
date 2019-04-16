@@ -1,7 +1,9 @@
 package com.homework.realorfake;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import java.io.ByteArrayOutputStream;
 
 import android.os.AsyncTask;
+import android.widget.VideoView;
 
 
 import org.apache.http.HttpResponse;
@@ -30,10 +33,11 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
 
+import android.widget.VideoView;
 
 public class GameActivity extends AppCompatActivity {
 
-
+    ImageView help;
     SeekBar mSeekBar;
     TextView mTxtValue;
     String value;
@@ -79,6 +83,7 @@ public class GameActivity extends AppCompatActivity {
     RadioButton radioButton;
 
 
+
     //Resuming activity
     @Override
     protected void onResume() {
@@ -104,16 +109,18 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
+
         radioGroup = findViewById(R.id.radioGroup);
         mSeekBar = findViewById(R.id.seekbarExample);
         mTxtValue = findViewById(R.id.seekBarValueTxt);
         frameLayout = findViewById(R.id.frameLayoutMain2);
-
 
         radioGroup = findViewById(R.id.radioGroup);
 
@@ -222,6 +229,8 @@ public class GameActivity extends AppCompatActivity {
 
 
     }
+
+
 
     @Override
     protected void onStop() {
