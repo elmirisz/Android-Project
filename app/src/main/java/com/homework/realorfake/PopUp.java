@@ -211,7 +211,10 @@ public class PopUp extends Activity {
                     Log.d("HEJ RADI", b.getString("Radio"));
                     // konacno radi i tu
                     Log.d("HEJ RADI", b.getString("Confidence"));
+
+                    //gridText1 is called on gridText1
                     gridText1 = (TextView) findViewById(R.id.gridText1);
+                    //gridText2 is called on gridText2
                     gridText2 = (TextView) findViewById(R.id.gridText2);
                     gridText1.setText("You think this is " + b.getString("Radio"));
                     gridText2.setText("With confidence: " + b.getString("Confidence") + "%");
@@ -257,9 +260,13 @@ public class PopUp extends Activity {
                     // konacno radi i tu
                     Log.d("Treci red confidence", b.getString("Confidence"));
 
+                    //grid for text 5
                     gridText5 = (TextView) findViewById(R.id.gridText5);
+                    //grid for text 6
                     gridText6 = (TextView) findViewById(R.id.gridText6);
+                    //grid for text
                     gridText = (TextView) findViewById(R.id.textView);
+
 
                     gridText5.setText(b.getString("People") + "% of people thinks this is real");
                     gridText6.setText("With confidence: " + b.getString("Confidence") + "%");
