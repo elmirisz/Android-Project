@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout
+
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,6 +13,7 @@
     >
 
 
+
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:id="@+id/mainGameLayout"
@@ -19,7 +22,9 @@
     android:layout_weight="19"
     >
 
+    //defined LinearLayout
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/orange"
@@ -29,14 +34,18 @@
         tools:layout_editor_absoluteX="122dp"
         tools:layout_editor_absoluteY="0dp">
 
+        //defined LinearLayout
         <LinearLayout
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="10"
 
             android:orientation="vertical">
 
+            //defined TextView
             <TextView
+
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +55,9 @@
 
                 android:textColor="@color/white" />
 
+            //defined TextView
             <TextView
+
                 android:id="@+id/seekBarValueTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,8 +67,11 @@
                 android:textAlignment="center"
                 android:textSize="40sp" />
 
+
         </LinearLayout>
 
+
+        //defined LinearLayout
         <LinearLayout
 
             android:layout_width="fill_parent"
@@ -65,8 +79,9 @@
             android:layout_weight="40"
             android:orientation="vertical">
 
-
+            //defined FrameLayout
             <FrameLayout
+
                 android:layout_width="wrap_content"
                 android:layout_height="373dp"
                 android:layout_weight="100"
@@ -74,7 +89,9 @@
                 android:background="@color/orange">
 
 
+                //defined ImageView
                 <ImageView
+
                     android:id="@+id/changePhoto"
                     android:layout_width="match_parent"
                     android:layout_height="344dp"
@@ -82,7 +99,10 @@
 
                     app:srcCompat="@drawable/image2" />
 
+
+                //defined ImageView
                 <ImageView
+
                     android:id="@+id/stampPhoto"
                     android:layout_width="401dp"
                     android:layout_height="76dp"
@@ -102,7 +122,10 @@
 
         </LinearLayout>
 
+
+        //defined LinearLayout
         <LinearLayout
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="10"
@@ -111,7 +134,9 @@
             android:orientation="vertical">
 
 
+            //defined SeekBar
             <SeekBar
+
                 android:id="@+id/seekbarExample"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,15 +153,19 @@
 
         </LinearLayout>
 
+
+        //defined FrameLayout
         <FrameLayout
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="30"
             android:background="@color/white"
             android:orientation="vertical">
 
-
+            //defined RadioGroup
             <RadioGroup
+
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -147,9 +176,11 @@
                 android:orientation="horizontal"
                 android:weightSum="100">
 
+
                 <!--<LinearLayout-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="match_parent"-->
+
 
                 <!--android:orientation="horizontal"-->
                 <!---->
@@ -157,7 +188,10 @@
                 <!--tools:layout_editor_absoluteX="264dp"-->
                 <!--tools:layout_editor_absoluteY="16dp">-->
 
+
+                //defined RadioButton
                 <RadioButton
+
                     android:id="@+id/realButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -165,6 +199,8 @@
                     android:onClick="checkButton"
                     android:text="REAL" />
 
+
+                //defined RadioButton
                 <RadioButton
 
                     android:id="@+id/fakeButton"
@@ -175,6 +211,8 @@
                     android:onClick="checkButton"
                     android:text="FAKE" />
 
+
+                //defined ImageView
                 <ImageView
                     android:id="@+id/helpButton"
                     android:layout_width="wrap_content"
@@ -184,12 +222,16 @@
 
 
                 <!--</LinearLayout>-->
+
             </RadioGroup>
 
 
         </FrameLayout>
 
+
+        //defined LinearLayout
         <LinearLayout
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="5"
@@ -197,8 +239,9 @@
             android:orientation="horizontal">
 
 
-
+            //defined Button
             <Button
+
                 android:id="@+id/applyButton"
                 android:background="@color/colorAccent"
                 android:layout_width="match_parent"
@@ -210,17 +253,27 @@
 
         </LinearLayout>
 
+
     </LinearLayout>
+
+
+
 </android.support.constraint.ConstraintLayout>
 
+    //defined FrameLayout
     <FrameLayout
+
 
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/frameLayoutMain2"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"></FrameLayout>
+        android:layout_height="match_parent">
+
+
+    </FrameLayout>
+
 
 
 </FrameLayout>
