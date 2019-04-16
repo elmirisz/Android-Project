@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Real or Fake</string>
     <string name="upper_text">REAL IMAGE OR FAKE?</string>
     <string name="confidence_text">Confidence: </string>
@@ -7,4 +8,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
 </resources>
