@@ -1,5 +1,6 @@
 package com.homework.realorfake;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -25,6 +26,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+
 public class PopUp extends Activity {
 
 
@@ -47,6 +49,7 @@ public class PopUp extends Activity {
             R.drawable.image3,
             R.drawable.image4,
             R.drawable.image5
+
     };
 
 
@@ -65,6 +68,7 @@ public class PopUp extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         //this is code for row 1
         new RequestTask(1).execute("http://www.studenti.famnit.upr.si/~89161011/OLD/current.php");
+
         //this is code for row 2
 
         new RequestTask(2).execute("http://www.studenti.famnit.upr.si/~89161011/OLD/fake.php");
@@ -81,10 +85,12 @@ public class PopUp extends Activity {
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
 
+
         //defined width
         int width = dm.widthPixels;
         //defined height
         int height = dm.heightPixels;
+
 
         //here we set the percentage of pop-up window of phones resolution
         getWindow().setLayout((int) (width * .98), (int) (height * 1));
@@ -216,6 +222,7 @@ public class PopUp extends Activity {
                     gridText1 = (TextView) findViewById(R.id.gridText1);
                     //gridText2 is called on gridText2
                     gridText2 = (TextView) findViewById(R.id.gridText2);
+
                     gridText1.setText("You think this is " + b.getString("Radio"));
                     gridText2.setText("With confidence: " + b.getString("Confidence") + "%");
 
